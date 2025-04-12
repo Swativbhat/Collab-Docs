@@ -22,9 +22,9 @@ const Editor = () => {
   };
 
   return (
-    <div style={styles.wrapper}>
-      <div style={styles.toolbarWrapper}>
-        <div id="custom-toolbar" style={styles.toolbar}>
+    <div className="max-w-[1400px] mx-auto mt-5 border border-gray-300 rounded-xl shadow-md overflow-hidden font-sans">
+      <div className="flex justify-between items-center border-b border-gray-200 bg-gray-100 p-3">
+        <div id="custom-toolbar" className="flex flex-wrap gap-2">
           <select className="ql-header" defaultValue="">
             <option value="1" />
             <option value="2" />
@@ -46,53 +46,20 @@ const Editor = () => {
           <button className="ql-image" />
           <button className="ql-clean" />
         </div>
-        <button style={styles.shareButton} onClick={handleShare}>Share </button>
+        <button
+          onClick={handleShare}
+          className="bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700 transition"
+        >
+          Share
+        </button>
       </div>
 
       <div
         ref={editorRef}
-        style={styles.editorContainer}
+        className="h-[600px] overflow-y-auto"
       ></div>
     </div>
   );
-};
-
-const styles = {
-  wrapper: {
-    maxWidth: '1400px',
-    margin: '20px auto',
-    border: '1px solid #ccc',
-    borderRadius: '12px',
-    boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-    overflow: 'hidden',
-    fontFamily: `'Segoe UI', sans-serif`,
-  },
-  toolbarWrapper: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderBottom: '1px solid #ddd',
-    backgroundColor: '#f5f5f5',
-    padding: '8px 12px',
-  },
-  toolbar: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    gap: '5px',
-  },
-  shareButton: {
-    backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '6px',
-    padding: '8px 14px',
-    cursor: 'pointer',
-    fontWeight: 'bold',
-  },
-  editorContainer: {
-    height: '600px',
-    overflowY: 'auto',
-  },
 };
 
 export default Editor;

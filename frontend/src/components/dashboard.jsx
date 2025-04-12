@@ -1,19 +1,13 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react"
 
-function Dashboard() {
-    const navigate = useNavigate();
-    const handleonclick = () => {
-        navigate("/editor");
-    }
 
-  return (
-    <div>
-          <h1>Dashboard</h1>
+function Dashboard(){
 
-          <button onClick={handleonclick}>Create new</button>
-    </div>
-  );
+    return(
+        <div>
+         <h1>Dashboard</h1>
+        </div>
+    )
 }
 
 export default Dashboard;
