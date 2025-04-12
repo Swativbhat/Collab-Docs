@@ -1,6 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import Quill from 'quill';
-import 'quill/dist/quill.snow.css';
+import React, { useEffect, useRef } from "react";
+import Quill from "quill";
+import "quill/dist/quill.snow.css";
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:3000");
 
 const Editor = () => {
   const editorRef = useRef(null);
@@ -9,9 +12,9 @@ const Editor = () => {
   useEffect(() => {
     if (editorRef.current && !quillInstance.current) {
       quillInstance.current = new Quill(editorRef.current, {
-        theme: 'snow',
+        theme: "snow",
         modules: {
-          toolbar: '#custom-toolbar',
+          toolbar: "#custom-toolbar",
         },
       });
     }
@@ -54,10 +57,7 @@ const Editor = () => {
         </button>
       </div>
 
-      <div
-        ref={editorRef}
-        className="h-[600px] overflow-y-auto"
-      ></div>
+      <div ref={editorRef} className="h-[600px] overflow-y-auto"></div>
     </div>
   );
 };
